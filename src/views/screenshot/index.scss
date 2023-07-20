@@ -1,0 +1,29 @@
+.screenshot {
+    max-width: 100vw;
+    min-height: 100vh;
+    padding: 20px 80px;
+    .choice-file {
+        width: 400px;
+        height: 50px;
+    }
+    .canvas-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .canvas-box {
+            width: 600px;
+            height: 600px;
+            border: 1px solid red;
+        }
+        .operation-view {
+            width: 600px;
+            height: 600px;
+            .view {
+                width: 200px;
+                height: 200px;
+                border: 1px solid black;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

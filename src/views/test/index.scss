@@ -1,0 +1,10 @@
+.test-view {
+    width: 100vw;
+    height: 100vh;
+    .canvas-content {
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        margin: 0 auto;
+    }
+}
