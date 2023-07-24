@@ -9,9 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ans1998/vue3-color": "^3.0.7",
+    "@lk77/vue3-color": "^3.0.6",
     "element-plus": "^2.3.7",
+    "uuid": "^9.0.0",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue-color": "^2.8.1",
+    "vue-router": "^4.2.4",
+    "vue3-draggable-resizable": "^1.6.5"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",

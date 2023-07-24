@@ -247,12 +247,13 @@ const mouseMove = (e: any) => {
   if (!isScreenShot.value) {
     return;
   }
-
   const { offsetX, offsetY } = e;
   const pathX = offsetX;
   const pathY = offsetY;
   let cursor = 'crosshair';
   cursorIndex = 9;
+
+  console.log('mousePosi', mousePosi);
 
   for (let i = 0; i < mousePosi.length; i++) {
     if (checkInPath(pathX, pathY, mousePosi[i])) {

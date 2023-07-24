@@ -1,0 +1,87 @@
+.drag-resize-comp {
+  max-width: 100vw;
+  max-height: 100vh;
+
+  .body-content {
+    width: calc(100vw - 100px);
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+
+  .drag-resize-content {
+    width: 600px;
+    height: 600px;
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .operation {
+    width: 400px;
+    height: 600px;
+    padding: 20px;
+
+    .button {
+      margin-bottom: 20px;
+    }
+
+    .operation-input {
+      margin-bottom: 20px;
+    }
+
+    .sketch-picker {
+      width: 100%;
+      height: 50px;
+      position: relative;
+      .color-picker-btn {
+        width: 100px;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .sketch {
+        position: absolute;
+        top: 50px;
+        left: 0;
+      }
+    }
+
+    .change-z-index {
+      width: 100%;
+      margin-top: 10px;
+      .z-index-btn {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .color {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+
+    div {
+      margin: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border: 1px solid #eee;
+      padding: 10px;
+    }
+  }
+
+  .vc-sketch {
+    // background: #212121;
+  }
+
+  .slider-demo-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .slider-demo-block .el-slider {
+    margin-top: 0;
+    margin-left: 12px;
+  }
+}

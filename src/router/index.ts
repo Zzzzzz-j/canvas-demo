@@ -11,6 +11,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/test',
     name: 'test',
     component: () => import('../views/test/index.vue'),
+  },
+  {
+    path: '/dragResizable',
+    name: 'dragResizable',
+    component: () => import('../views/dragResizeComp/index.vue'),
   }
 ]
 
