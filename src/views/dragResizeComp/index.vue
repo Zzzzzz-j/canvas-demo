@@ -34,7 +34,7 @@
         <div class="sketch-picker">
           <div class="color-picker-btn" :style="{ background: color }" @click="showSketchPicker"></div>
           <div class="sketch">
-            <Sketch v-show="showSketch" v-model="color" :styles="{ backgroundColor: 'red'}" @update:modelValue="updateValue" />
+            <Sketch v-show="showSketch" v-model="color" :styles="{ backgroundColor: 'red'}" @update:modelValue="updateValue" :disableAlpha="true" />
           </div>
         </div>
         <el-button color="#626aef" @click="addText">添加文本</el-button>
@@ -90,6 +90,7 @@ function addImg() {
   arr.push(obj);
   console.log('arr', arr);
   dragResizableList.value = arr;
+  curIndex.value = arr.length - 1;
 }
 
 function addText() {

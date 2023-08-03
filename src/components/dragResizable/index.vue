@@ -85,8 +85,11 @@ function print(val) {
 }
 
 function resizing(value) {
-  posi.value = value;
-  console.log(value);
+  let obj = posi.value;
+  obj.w = value.w;
+  obj.h = value.h;
+  posi.value = obj;
+  console.log('resizing', value);
 }
 
 function dragEnd(value) {
@@ -98,7 +101,7 @@ function dragEnd(value) {
 }
 
 function resizeEnd(value) {
-  posi.value = value;
+  // posi.value = value;
   console.log('resizeEnd', value);
 }
 
@@ -121,6 +124,8 @@ function actived() {
 
 .drag-text {
   cursor: default;
+  word-wrap: break-word;
+  /* white-space: pre-wrap; */
 }
 
 .close-img {
