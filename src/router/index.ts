@@ -16,6 +16,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/dragResizable',
     name: 'dragResizable',
     component: () => import('../views/dragResizeComp/index.vue'),
+  },
+  {
+    path: '/easyScreenshot',
+    name: 'easyScreenshot',
+    component: () => import('../views/easyScreenshot/index.vue'),
   }
 ]
 
