@@ -32,7 +32,7 @@ const endPosi: any = ref(null);
 let initSize = {} as {
   width: number,
   height: number,
-  proportion: number
+  proportion: number // 宽高比例
 };
 
 let canvasSize = {} as {
@@ -57,6 +57,8 @@ onMounted(() => {
   document.addEventListener('mouseup', () => {
     cancelChangeSelect();
   });
+
+  console.log('document', document);
 });
 
 const btnClick = () => {
@@ -133,23 +135,19 @@ const drawImage = () => {
 
   const canvas = document.getElementById('clipcanvas') as HTMLCanvasElement;
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-  ctx.save();
-  ctx.globalCompositeOperation = 'destination-over';
-  ctx.translate(canvasWidth / 2, canvasHeight / 2);
-  ctx.translate(- canvasWidth / 2, - canvasHeight / 2);
+  // ctx.save();
+  // ctx.globalCompositeOperation = 'destination-over';
+  // ctx.translate(canvasWidth / 2, canvasHeight / 2);
+  // ctx.translate(- canvasWidth / 2, - canvasHeight / 2);
 
   const scaleImgWidth = imgScale * imgSize.width;
   const scaleImgHeight = imgScale * imgSize.height;
 
   console.log((canvasWidth - scaleImgWidth), (canvasHeight - scaleImgHeight), scaleImgWidth, scaleImgHeight);
 
-  ctx.drawImage(
-    img,
-    (canvasWidth - scaleImgWidth) / 2, (canvasHeight - scaleImgHeight) / 2,
-    scaleImgWidth, scaleImgHeight
-  );
+  ctx.drawImage(img, 0, 0, scaleImgWidth, scaleImgHeight);
 
-  ctx.restore();
+  // ctx.restore();
 };
 
 const screenshot = () => {
@@ -170,7 +168,7 @@ const drawCover = () => {
     drawCanvas.height = canvasSize.height;
     ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
     ctx.strokeStyle = 'rgba(0, 143, 255, 1)';
-    ctx.globalCompositeOperation = 'source-over';
+    // ctx.globalCompositeOperation = 'source-over';
     ctx.fillRect(0, 0, canvasSize.width, canvasSize.height);
   });
 };
@@ -198,7 +196,7 @@ const mouseMove = (e: any) => {
 };
 
 /**
- * 移动取消
+ * 截图完成, 移动取消
  */
 const cancelChangeSelect = async () => {
   if (!isDraw.value) {
@@ -215,7 +213,7 @@ const cancelChangeSelect = async () => {
   const data = ctx.getImageData(endPosi.value.x, endPosi.value.y, endPosi.value.w, endPosi.value.h);
 
   const context = canvas.getContext("2d") as any;
-  context.putImageData(data,0,0);
+  context.putImageData(data, 0, 0);
   imgUrl.value = canvas.toDataURL("image/png",1);
   startPosi.value = null;
   endPosi.value = null;
@@ -234,7 +232,7 @@ const fill = (x: number, y: number, w: number, h: number) => {
   // ctx.fillRect(x, y, w, h);
   ctx.clearRect(x, y, w, h);
   //描边
-  ctx.globalCompositeOperation = "source-over";
+  // ctx.globalCompositeOperation = "source-over";
   ctx.moveTo(x, y);
   ctx.lineTo(x + w, y);
   ctx.lineTo(x + w, y + h);
